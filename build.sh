@@ -1,0 +1,17 @@
+#git config --global user.name bibi09456
+#git config --global user.email 55490658+bibi09456@users.noreply.github.com
+#rm -rf device/xiaomi/rodin
+#rm -rf device/lineage/sepolicy
+#rm -rf frameworks/native
+#rm -rf .repo/local_manifests/ && repo init --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 16 -g default,-mips,-darwin,-notdefault && git clone https://github.com/bibi09456/local_manifests --depth 1 -b rodin .repo/local_manifests && /opt/crave/resync.sh && repo forall -c git lfs pull
+#cd frameworks/native && curl https://github.com/pos-xyz-personal/frameworks_native/commit/9b1091664329d9b8055d246210cf442b8d7eb5da.patch | git am && cd ../..
+#sed -i '/vendor_camera_prop/d' device/lineage/sepolicy/common/private/property_contexts
+#sed -i 's/OS2.0.204.0.VOJMIXM/OS2.0.205.0.VOJMIXM/' $(grep -rnwl device/xiaomi/rodin -e 'OS2.0.204.0.VOJMIXM')
+#sed -i '$d' device/xiaomi/rodin/lineage_rodin.mk
+#perl -pi -e 'chomp if eof' device/xiaomi/rodin/lineage_rodin.mk
+#echo -e " \\\\\n    RisingChipset=\"Dimensity 8400-Ultra\" \\\\\n    RisingMaintainer=\"bibi094\"\n\nWITH_GMS := false\nWITH_MICROG := true\nRISING_MAINTAINER=\"bibi094\"\nRISING_MAINTAINER := bibi094" | tee -a device/xiaomi/rodin/lineage_rodin.mk
+export BUILD_USERNAME=bibi09456
+export BUILD_HOSTNAME=crave
+export TZ=Asia/Jakarta
+export WITH_GMS=true
+source build/envsetup.sh && lunch lineage_rodin-bp1a-userdebug && mka installclean && mka bacon
