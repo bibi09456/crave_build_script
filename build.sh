@@ -10,6 +10,9 @@ rm -rf .repo/local_manifests/ && repo init -u https://github.com/LineageOS/andro
 #sed -i '$d' device/xiaomi/rodin/lineage_rodin.mk
 #perl -pi -e 'chomp if eof' device/xiaomi/rodin/lineage_rodin.mk
 #echo -e " \\\\\n    RisingChipset=\"Dimensity 8400-Ultra\" \\\\\n    RisingMaintainer=\"bibi094\"\n\nWITH_GMS := false\nWITH_MICROG := true\nRISING_MAINTAINER=\"bibi094\"\nRISING_MAINTAINER := bibi094" | tee -a device/xiaomi/rodin/lineage_rodin.mk
+sed -i 's/v0.3.13.250932/v0.3.15.250932/g' vendor/partner_gms/.microg_release
+sed -i 's/250932026/250932030/g' vendor/partner_gms/GmsCore/.version_code
+sed -i 's/84022626/84022630/g' vendor/partner_gms/FakeStore/.version_code
 export BUILD_USERNAME=bibi09456
 export BUILD_HOSTNAME=crave
 export TZ=Asia/Jakarta
