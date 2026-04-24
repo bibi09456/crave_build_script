@@ -3,7 +3,7 @@
 #rm -rf device/xiaomi/rodin
 #rm -rf device/lineage/sepolicy
 #rm -rf frameworks/native
-#rm -rf .repo/local_manifests/ && repo init --no-repo-verify --git-lfs -u https://github.com/ProjectInfinity-X/manifest -b 16 -g default,-mips,-darwin,-notdefault && git clone https://github.com/bibi09456/local_manifests --depth 1 -b rodin .repo/local_manifests && /opt/crave/resync.sh && repo forall -c git lfs pull
+rm -rf .repo/local_manifests/ && repo init -u https://github.com/LineageOS/android.git -b lineage-23.2 --git-lfs && git clone https://github.com/bibi09456/local_manifests --depth 1 -b rodin .repo/local_manifests && /opt/crave/resync.sh && repo forall -c git lfs pull
 #cd frameworks/native && curl https://github.com/pos-xyz-personal/frameworks_native/commit/9b1091664329d9b8055d246210cf442b8d7eb5da.patch | git am && cd ../..
 #sed -i '/vendor_camera_prop/d' device/lineage/sepolicy/common/private/property_contexts
 #sed -i 's/OS2.0.204.0.VOJMIXM/OS2.0.205.0.VOJMIXM/' $(grep -rnwl device/xiaomi/rodin -e 'OS2.0.204.0.VOJMIXM')
@@ -14,4 +14,4 @@ export BUILD_USERNAME=bibi09456
 export BUILD_HOSTNAME=crave
 export TZ=Asia/Jakarta
 export WITH_GMS=true
-source build/envsetup.sh && lunch lineage_rodin-bp1a-userdebug && mka installclean && mka bacon
+source build/envsetup.sh && lunch lineage_rodin-bp4a-userdebug && mka installclean && mka bacon
