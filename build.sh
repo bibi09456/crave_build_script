@@ -23,4 +23,4 @@ export BUILD_HOSTNAME=crave
 export TZ=Asia/Jakarta
 export WITH_GMS=true
 export TARGET_SHIPS_DOLBY=true
-source build/envsetup.sh && lunch lineage_rodin-bp4a-userdebug && mka installclean && mka bacon
+source build/envsetup.sh && lunch lineage_rodin-bp4a-eng && mka installclean && mka bacon
