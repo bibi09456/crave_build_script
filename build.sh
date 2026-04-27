@@ -3,9 +3,6 @@
 #rm -rf device/xiaomi/rodin
 #rm -rf device/lineage/sepolicy
 #rm -rf frameworks/native
-rm hardware/ril/reference-ril/telephony
-cd device/xiaomi/rodin && git restore framework_compatibility_matrix.xml
-cd ../../..
 rm -rf .repo/local_manifests/ && repo init -u https://github.com/LineageOS/android.git -b lineage-23.2 --git-lfs && git clone https://github.com/bibi09456/local_manifests --depth 1 -b rodin .repo/local_manifests && /opt/crave/resync.sh && repo forall -c git lfs pull
 #cd frameworks/native && curl https://github.com/pos-xyz-personal/frameworks_native/commit/9b1091664329d9b8055d246210cf442b8d7eb5da.patch | git am && cd ../..
 #sed -i '/vendor_camera_prop/d' device/lineage/sepolicy/common/private/property_contexts
@@ -23,4 +20,4 @@ export BUILD_HOSTNAME=crave
 export TZ=Asia/Jakarta
 export WITH_GMS=true
 export TARGET_SHIPS_DOLBY=true
-source build/envsetup.sh && lunch lineage_rodin-bp4a-eng && mka installclean && mka bacon
+source build/envsetup.sh && lunch lineage_rodin-bp4a-userdebug && mka installclean && mka bacon
