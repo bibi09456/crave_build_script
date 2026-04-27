@@ -12,12 +12,7 @@ rm -rf .repo/local_manifests/ && repo init -u https://github.com/LineageOS/andro
 #echo -e " \\\\\n    RisingChipset=\"Dimensity 8400-Ultra\" \\\\\n    RisingMaintainer=\"bibi094\"\n\nWITH_GMS := false\nWITH_MICROG := true\nRISING_MAINTAINER=\"bibi094\"\nRISING_MAINTAINER := bibi094" | tee -a device/xiaomi/rodin/lineage_rodin.mk
 #cd hardware/ril/reference-ril && ln -s ../include/telephony && cd ../../..
 #sed -i '/<\/compatibility-matrix>/i\  <hal format="aidl">\n    <name>vendor.xiaomi.hardware.batteryantiaging</name>\n    <version>1</version>\n    <interface>\n      <name>IBatteryAntiAging</name>\n      <instance>default</instance>\n    </interface>\n  </hal>\n  <hal format="aidl">\n    <name>vendor.xiaomi.hardware.micharge</name>\n    <version>2</version>\n    <interface>\n      <name>IMiCharge</name>\n      <instance>default</instance>\n    </interface>\n  </hal>' device/xiaomi/rodin/framework_compatibility_matrix.xml
-sed -i 's/v0.3.13.250932/v0.3.15.250932/g' vendor/partner_gms/.microg_release
-sed -i 's/250932026/250932030/g' vendor/partner_gms/GmsCore/.version_code
-sed -i 's/84022626/84022630/g' vendor/partner_gms/FakeStore/.version_code
 export BUILD_USERNAME=bibi09456
 export BUILD_HOSTNAME=crave
 export TZ=Asia/Jakarta
-export WITH_GMS=true
-export TARGET_SHIPS_DOLBY=true
 source build/envsetup.sh && lunch lineage_rodin-bp4a-userdebug && mka installclean && mka bacon
